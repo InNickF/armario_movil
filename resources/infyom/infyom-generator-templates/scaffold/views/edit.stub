@@ -1,0 +1,24 @@
+@extends('layouts.admin')
+
+@section('content')
+    <section class="content-header">
+        <h1>
+            $MODEL_NAME_HUMAN$
+        </h1>
+   </section>
+   <div class="content">
+        @include('flash::message')
+       @include('adminlte-templates::common.errors')
+       <div class="card o-hidden border-0 shadow-lg my-5">
+           <div class="card-body">
+               {!! Form::model($$MODEL_NAME_CAMEL$, ['route' => ['$VIEW_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'patch']) !!}
+                   <div class="row">
+
+                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                        
+                    </div>
+                   {!! Form::close() !!}
+           </div>
+       </div>
+   </div>
+@endsection

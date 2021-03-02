@@ -1,0 +1,1 @@
+<div class="footer-copyright padding-footer__mob px-4 py-3 padding-footer__mob">2019 Armario. Todos los derechos reservados</div>

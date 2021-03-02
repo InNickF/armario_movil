@@ -1,0 +1,81 @@
+<template>
+  <div v-if="!loading" class>
+    <div @click="openStories" class="cursor-pointer">
+      <div class="img-24 bg-gradient p-2px rounded-circle my-3 mx-auto img-fluid">
+        <div
+          class="w-100 h-100 bg-center bg-cover mx-auto rounded-circle border-white border-2px bg-white"
+          :style="{backgroundImage:getBgImage()}"
+        ></div>
+        <!-- <img class="avatar-sm-md rounded-circle mx-3" :src="storeFinal.logo_image_thumbnail" /> -->
+      </div>
+      <div class="w-100 card-body h-100 py-0 mb-3">
+        <p class="card-text text-sm">
+          {{ store.name.length > 15 ? store.name.substring(0, 12) + '...' : store.name }}
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+
+<script>
+export default {
+  components: {},
+  props: {
+    store: Object
+  },
+
+  data() {
+    return {
+      baseUrl: process.env.MIX_APP_URL,
+      apiUrl: process.env.MIX_API_URL,
+      activeColor: null,
+      activeSize: null,
+      loading: true,
+      storeFinal: null
+    };
+  },
+
+  computed: {
+    // getStore() {
+    //   return JSON.parse(this.store);
+    // }
+  },
+  methods: {
+    showModal() {
+      // Find parent ref in root then locate component ref
+      if (
+        this.$root.$refs["StoriesModal"] &&
+        this.$root.$refs["StoriesModal"].$refs["StoriesCarouselModal"]
+      ) {
+        this.$root.$refs["StoriesModal"].$refs["StoriesCarouselModal"].show(); // Show the modal
+        this.$root.$refs["StoriesModal"].setActiveStoreId(this.storeFinal.id); // Set store ID to navigate to correct slide
+      } else {
+        console.error(refName + " ref was not found");
+      }
+    },
+    openStories() {
+      this.showModal();
+    },
+    getBgImage() {
+      let storeLogo = this.storeFinal.logo_image_thumbnail;
+      let result = 'url("' + storeLogo + '")';
+      return result;
+    }
+  },
+  mounted() {
+    // console.log("SingleStoreSmall mounted.", this.storeId);
+    // this.getStore();
+    if (this.store) {
+      this.storeFinal = this.store;
+      // console.log('Store', this.storeFinal);
+      this.loading = false;
+    }
+
+    // if (this.oldReview) {
+    //   this.review = this.oldReview;
+    // }
+  }
+};
+</script>

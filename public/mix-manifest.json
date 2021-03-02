@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/paymentez-checkout.js": "/js/paymentez-checkout.js",
+    "/js/paymentez-checkout-product-plans.js": "/js/paymentez-checkout-product-plans.js",
+    "/js/all.js": "/js/all.js",
+    "/js/paymentez-add-card.js": "/js/paymentez-add-card.js",
+    "/js/vendor.js": "/js/vendor.js",
+    "/js/admin.js": "/js/admin.js"
+}

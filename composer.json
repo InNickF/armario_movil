@@ -1,0 +1,133 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "repositories": [  
+        {  
+            "type": "vcs",  
+            "url": "https://github.com/vortixhead/laravel-barcode-generator"  
+        }  
+    ],  
+    "require": {
+        "php": "^7.1.3",
+        "alexpechkarev/google-maps": "1.0.9",
+        "anlutro/l4-settings": "^0.8.1",
+        "arrilot/laravel-widgets": "^3.13",
+        "artesaos/seotools": "^0.14.0",
+        "atayahmet/laravel-nestable": "^0.8.8",
+        "barryvdh/laravel-cors": "^0.11.3",
+        "barryvdh/laravel-snappy": "^0.4.4",
+        "bensampo/laravel-enum": "^1.17",
+        "benwilkins/laravel-fcm-notification": "dev-master",
+        "brozot/laravel-fcm": "^1.2",
+        "codezero/laravel-unique-translation": "^1.1",
+        "consoletvs/charts": "6.*",
+        "darryldecode/cart": "~4.0",
+        "davejamesmiller/laravel-breadcrumbs": "5.x",
+        "doctrine/dbal": "~2.3",
+        "dompdf/dompdf": "^0.8.3",
+        "farhanwazir/laravelgooglemaps": "^2.3",
+        "fideloper/proxy": "^4.0",
+        "h4cc/wkhtmltoimage-amd64": "0.12.x",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
+        "infyomlabs/adminlte-templates": "5.8.x-dev",
+        "infyomlabs/laravel-generator": "5.8.x-dev",
+        "infyomlabs/swagger-generator": "dev-master",
+        "jlapp/swaggervel": "dev-master",
+        "laravel-frontend-presets/vuetify": "^1.0",
+        "laravel/framework": "5.8.*",
+        "laravel/passport": "^7.0",
+        "laravel/scout": "^7.1",
+        "laravel/socialite": "^4.1",
+        "laravel/tinker": "^1.0",
+        "laravelcollective/html": "^5.8.0",
+        "maatwebsite/excel": "^3.1",
+        "malhal/laravel-geographical": "^1.0",
+        "orangehill/iseed": "^2.6",
+        "overtrue/laravel-follow": "^1.1",
+        "peal/laravel-barcode-generator": "dev-master",
+        "php-ffmpeg/php-ffmpeg": "^0.14.0",
+        "predis/predis": "~1.0",
+        "proengsoft/laravel-jsvalidation": ">2.2.0",
+        "rap2hpoutre/laravel-log-viewer": "^1.1",
+        "realrashid/sweet-alert": "^2.0",
+        "rinvex/laravel-addresses": "2.1.1",
+        "rinvex/laravel-subscriptions": "2.1.1",
+        "rinvex/laravel-support": "2.1.1",
+        "silber/bouncer": "v1.0.0-rc.6",
+        "silviolleite/laravelpwa": "^1.0",
+        "spatie/image": "^1.7",
+        "spatie/laravel-analytics": "3.6.3",
+        "spatie/laravel-blade-javascript": "2.2.2",
+        "spatie/laravel-json-api-paginate": "1.4.3",
+        "spatie/laravel-medialibrary": "^7.0.0",
+        "spatie/laravel-query-builder": "^1.15",
+        "spatie/laravel-sluggable": "^2.1",
+        "spatie/laravel-translatable": "^4.1.0",
+        "spatie/opening-hours": "^2.1",
+        "typicms/bootforms": "^1.0",
+        "yajra/laravel-datatables-buttons": "^4.0",
+        "yajra/laravel-datatables-html": "^4.0",
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "zircote/swagger-php": "2.*"
+    },
+    "require-dev": {
+        "ajthinking/tinx": "^2.1",
+        "barryvdh/laravel-debugbar": "^3.2",
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "beyondcode/laravel-dump-server": "^1.0",
+        "beyondcode/laravel-query-detector": "^1.0",
+        "deployer/deployer": "^6.7",
+        "deployer/dist": "^6.4",
+        "filp/whoops": "^2.0",
+        "fzaninotto/faker": "^1.4",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^2.0",
+        "phpunit/phpunit": "^7.0",
+        "squizlabs/php_codesniffer": "^3.4"
+    },
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+            ]
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ] ,
+        "post-update-cmd": [
+            "php artisan vendor:publish --provider=\"Proengsoft\\JsValidation\\JsValidationServiceProvider\" --tag=public --force"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

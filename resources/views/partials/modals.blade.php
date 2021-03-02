@@ -1,0 +1,10 @@
+  @include('partials.logout-modal')
+  @include('partials.add-card-modal')
+  @include('partials.terms-modal')
+
+  @include('partials.create-story-modal')
+  @include('partials.stories-carousel-modal')
+  @include('partials.searchComponent')
+  @include('partials.searchCategoriesComponent')
+  @include('partials.mob-sidebar-account')
+  @include('partials.mob-sidebar-admin')
